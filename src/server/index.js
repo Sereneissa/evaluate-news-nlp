@@ -49,12 +49,13 @@ app.post("/addAPI", async function(req,res) {
     const theData = await response.json()
     console.log(theData)
     res.send(theData)
-    /*try {
+    try {
         request.json()
         res.send(json);
       } catch (error) {
         console.log("error", error);
-      }*/
+      }
+      
 });
 
 const dotenv = require('dotenv');

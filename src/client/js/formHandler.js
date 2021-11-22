@@ -6,7 +6,7 @@ function handleSubmit(event) {
     let formText = document.getElementById('url').value
     if(Client.checkForName(formText)) {
         console.log("::: Form Submitted :::")
-        postData('http://localhost:8081/test')
+        fetch('http://localhost:8081/addAPI')
         
         .then(function(res) {
             document.getElementById('results').innerHTML = `Results ${res.message}`;
@@ -23,7 +23,6 @@ function handleSubmit(event) {
     }
     
     }
-   
    
     const postData = async (url = "/addAPI", data = {}) => { 
         console.log(data);

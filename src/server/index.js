@@ -1,5 +1,4 @@
 //DEFINITIONS
-
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
@@ -8,7 +7,6 @@ const cors = require('cors');
 
 
 const app = express()
-
 
 app.use(cors());
 app.use(bodyParser.json())
@@ -21,11 +19,23 @@ console.log(__dirname)
 
 
 //API KEY 
-const baseUrl = "https://api.meaningcloud.com/sentiment-2.1?key=${process.env.REACT_APP_API_KEY}&url=${userInput}&lang=auto";
+const baseUrl = "https://api.meaningcloud.com/sentiment-2.1";
 let userInput = [] 
 console.log(process.env);
-console.log(`Your API key is ${process.env.REACT_APP_API_KEY}`);
+//console.log(`Your API key is ${process.env.REACT_APP_API_KEY}`);
 const myApiKey = process.env.REACT_APP_API_KEY;
+
+
+/*async function getData(){ 
+    const response = await fetch(baseUrl);
+    const data = await response.json();
+    console.log(data);
+    
+  }
+  
+getData();*/
+
+
 
 //GET 
 app.get('/all', function (req, res) {
@@ -45,12 +55,12 @@ app.get('/test', function (req, res) {
 app.post("/addAPI", async function(req,res) {
     userInput = req.body.url;
     console.log(`Your Entry: ${userInput}`);
-    const apiURL = `${baseUrl}key=${myApiKey}&url=${userInput}&lang=en`
+    const apiURL = `${baseUrl}key=${myApiKey}&url=${userInput}&lang=en`;
     
     const response = await fetch(apiURL)
-    const theData = await response.json()
-    console.log(theData)
-    res.send(theData)
+    const data = await response.json
+    console.log(data);
+
     /*try {
         request.json()
         res.send(json);
@@ -59,6 +69,39 @@ app.post("/addAPI", async function(req,res) {
       }*/
 
 });
+
+console.log() 
+
+const postData = async (url = "/addAPI", data = {}) => { 
+    console.log(data);
+      const options = {
+      
+      method: "POST",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    //const response = await fetch(url,options);
+    try {
+      const newData = await response.json();
+      console.log(newData);
+      return newData;
+    } catch (error) {
+      console.log("error", error);
+    }
+
+    postData('/addAPI')
+    .then(function(data){  
+      gatherData('/all')
+
+postData();
+
+})
+}
+
+
 
 const dotenv = require('dotenv');
 dotenv.config();

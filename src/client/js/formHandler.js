@@ -23,17 +23,18 @@ function handleSubmit(event) {
     
     }
    
-    const postData = async (url = "", data = {}) => { 
+    const postData = async (url = "/addAPI", data = {}) => { 
         console.log(data);
-        /*const options = {*/
-          const response = await fetch(url, {
+          const options = {
+          
           method: "POST",
           credentials: "same-origin",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
-        });
+        };
+        const response = await fetch('/addAPI',options);
         try {
           const newData = await response.json();
           console.log(newData);

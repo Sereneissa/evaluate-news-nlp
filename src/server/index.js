@@ -21,14 +21,15 @@ console.log(__dirname)
 
 
 //API KEY 
-const baseUrl = "https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&url=${userInput}&lang=auto";
+const baseUrl = "https://api.meaningcloud.com/sentiment-2.1?key=${process.env.REACT_APP_API_KEY}&url=${userInput}&lang=auto";
 let userInput = [] 
-console.log(`Your API key is ${process.env.API_KEY}`);
-const myApiKey = process.env.API_KEY;
+console.log(`Your API key is ${process.env.REACT_APP_API_KEY}`);
+const myApiKey = process.env.REACT_APP_API_KEY;
 
 //GET 
 app.get('/all', function (req, res) {
     res.sendFile('dist/index.html')
+    res.send(userInput);
     //res.sendFile(path.resolve('src/client/views/index.html'))
 })
 

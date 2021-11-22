@@ -4,6 +4,7 @@ const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 const bodyParser = require('body-parser')
 const cors = require('cors');
+const axios = require('axios').default;
 
 
 const app = express()
@@ -25,18 +26,6 @@ console.log(process.env);
 //console.log(`Your API key is ${process.env.REACT_APP_API_KEY}`);
 const myApiKey = process.env.REACT_APP_API_KEY;
 
-
-/*async function getData(){ 
-    const response = await fetch(baseUrl);
-    const data = await response.json();
-    console.log(data);
-    
-  }
-  
-getData();*/
-
-
-
 //GET 
 app.get('/all', function (req, res) {
     res.sendFile('dist/index.html')
@@ -48,8 +37,6 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-
-//function postData(req, res) {
 
 //POST 
 app.post("/addAPI", async function(req,res) {
@@ -69,39 +56,6 @@ app.post("/addAPI", async function(req,res) {
       }*/
 
 });
-
-console.log() 
-
-const postData = async (url = "/addAPI", data = {}) => { 
-    console.log(data);
-      const options = {
-      
-      method: "POST",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
-    //const response = await fetch(url,options);
-    try {
-      const newData = await response.json();
-      console.log(newData);
-      return newData;
-    } catch (error) {
-      console.log("error", error);
-    }
-
-    postData('/addAPI')
-    .then(function(data){  
-      gatherData('/all')
-
-postData();
-
-})
-}
-
-
 
 const dotenv = require('dotenv');
 dotenv.config();

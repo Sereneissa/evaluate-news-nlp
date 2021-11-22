@@ -9,7 +9,7 @@ function handleSubmit(event) {
         postData('http://localhost:8081/addAPI', {url: formText} )
         
         .then(function(res) {
-            document.getElementById('results').innerHTML = `Results ${res.message}`;
+            //document.getElementById('results').innerHTML = `Results ${res.message}`;
             document.getElementById("model").innerHTML = `Model ${res.model}`;
             document.getElementById("agreement").innerHTML = `Agreement ${res.agreement}`;
             document.getElementById("confidence").innerHTML = `Confidence ${res.confidence}`;
@@ -23,6 +23,35 @@ function handleSubmit(event) {
     
     }
    
+    const postData = async (url = "/addAPI", data = {}) => { 
+      console.log(data);
+        const options = {
+        
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      };
+      //const response = await fetch(url,options);
+      try {
+        const newData = await response.json(url, options);
+        console.log(newData);
+        return newData;
+      } catch (error) {
+        console.log("error", error);
+      }
+  
+      postData('/addAPI')
+      .then(function(data){  
+        gatherData('/all')
+  
+  postData();
+  
+  })
+  }
+
 
 
 

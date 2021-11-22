@@ -1,6 +1,6 @@
+
 function handleSubmit(event) {
     event.preventDefault()
-
 
     // check what text was put into the form field
     let formText = document.getElementById('url').value
@@ -23,17 +23,17 @@ function handleSubmit(event) {
     
     }
    
-    const postData = async (url = "/addAPI", data = {}) => { 
+    const postData = async (url = "", data = {}) => { 
         console.log(data);
-        const options = {
+        /*const options = {*/
+          const response = await fetch(url, {
           method: "POST",
           credentials: "same-origin",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
-        };
-        const response = await fetch('/addAPI', options);
+        });
         try {
           const newData = await response.json();
           console.log(newData);

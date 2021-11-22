@@ -21,10 +21,10 @@ console.log(__dirname)
 
 
 //API KEY 
-const baseUrl = "https://api.meaningcloud.com/sentiment-2.1";
+const baseUrl = "https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&url=${userInput}&lang=auto";
 let userInput = [] 
-console.log(`Your API key is ${process.env.REACT_APP_SENTIMENT_API_KEY}`);
-const myApiKey = process.env.REACT_APP_SENTIMENT_API_KEY;
+console.log(`Your API key is ${process.env.API_KEY}`);
+const myApiKey = process.env.API_KEY;
 
 //GET 
 app.get('/all', function (req, res) {
@@ -44,16 +44,17 @@ app.post("/addAPI", async function(req,res) {
     userInput = req.body.url;
     console.log(`Your Entry: ${userInput}`);
     const apiURL = `${baseUrl}key=${myApiKey}&url=${userInput}&lang=en`
+    
     const response = await fetch(apiURL)
     const theData = await response.json()
     console.log(theData)
     res.send(theData)
-    try {
+    /*try {
         request.json()
         res.send(json);
       } catch (error) {
         console.log("error", error);
-      }
+      }*/
 
 });
 

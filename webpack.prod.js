@@ -7,6 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: './src/client/index.js',
+    entry: ["regenerator-runtime/runtime.js", "index.js"],
     mode: 'production',
     output: {
         libraryTarget: 'var',

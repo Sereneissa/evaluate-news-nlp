@@ -6,7 +6,7 @@ function handleSubmit(event) {
     let formText = document.getElementById('url').value
     if(Client.checkForName(formText)) {
         console.log("::: Form Submitted :::")
-        fetch('http://localhost:8081/addAPI')
+        postData('http://localhost:8081/addAPI', {url: formText} )
         
         .then(function(res) {
             document.getElementById('results').innerHTML = `Results ${res.message}`;
@@ -14,7 +14,6 @@ function handleSubmit(event) {
             document.getElementById("agreement").innerHTML = `Agreement ${res.agreement}`;
             document.getElementById("confidence").innerHTML = `Confidence ${res.confidence}`;
             document.getElementById("irony").innerHTML = `Irony ${res.irony}`;
-            document.getElementById("text").innerHTML = `Text ${res.text}`;
 
 
         })

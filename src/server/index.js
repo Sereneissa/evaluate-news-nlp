@@ -26,7 +26,6 @@ let userInput = []
 console.log(`Your API key is ${process.env.REACT_APP_SENTIMENT_API_KEY}`);
 const myApiKey = process.env.REACT_APP_SENTIMENT_API_KEY;
 
-
 //GET 
 app.get('/all', function (req, res) {
     res.sendFile('dist/index.html')
@@ -55,7 +54,7 @@ app.post("/addAPI", async function(req,res) {
       } catch (error) {
         console.log("error", error);
       }
-      
+
 });
 
 const dotenv = require('dotenv');

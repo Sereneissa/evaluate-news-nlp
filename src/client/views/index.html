@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+
+        <header>
+            <div class="">
+                Logo
+            </div>
+            <h1> Sentiment Analyzer </h1>
+            <div class="">
+                navigation
+            </div>
+        </header>
+
+        <main>
+            
+            <section>
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <input id="url" type="text" name="input" value="" onblur="onBlur()" placeholder="Enter URL:">
+                    <input type="submit" class="button-submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+
+                </form>
+            </section>
+
+            <section>
+                <strong>Form Results:</strong>
+                <br>
+                <br>
+                <div id="model"> Model: </div>
+                <br>
+                <div id="agreement">Agreement:</div>
+                <br>
+                <div id="confidence">Confidence:</div>
+                <br>
+                <div id="irony">Irony:</div>
+                <br>
+                <div id="text"> Text Sample: </div>            
+            </section>
+
+        </main>
+
+        <footer>
+            <p> ©Copyright 2021. Issa inc.</p>
+        </footer>
+
+    </body>
+</html>
+

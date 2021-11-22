@@ -8,7 +8,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
     entry: './src/client/index.js',
-    entry: ["regenerator-runtime/runtime.js", "index.js"],
+   // entry: "regenerator-runtime/runtime.js",
     mode: 'production',
     output: {
         libraryTarget: 'var',

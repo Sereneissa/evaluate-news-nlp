@@ -23,6 +23,7 @@ console.log(__dirname)
 //API KEY 
 const baseUrl = "https://api.meaningcloud.com/sentiment-2.1?key=${process.env.REACT_APP_API_KEY}&url=${userInput}&lang=auto";
 let userInput = [] 
+console.log(process.env);
 console.log(`Your API key is ${process.env.REACT_APP_API_KEY}`);
 const myApiKey = process.env.REACT_APP_API_KEY;
 

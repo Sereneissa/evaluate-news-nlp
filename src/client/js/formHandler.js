@@ -34,7 +34,7 @@ function handleSubmit(event) {
           },
           body: JSON.stringify(data),
         };
-        const response = await fetch('/addAPI',options);
+        const response = await fetch(url,options);
         try {
           const newData = await response.json();
           console.log(newData);
